@@ -1,6 +1,6 @@
 # Task 3 Observations
 
-## 1. What A2A messages were exchanged between agents
+## What A2A messages were exchanged between agents
 
 The Travel Assistant first discovered a booking-capable agent through the registry, then sent a JSON-RPC `message/send` request to the Flight Booking Agent.
 
@@ -52,7 +52,7 @@ This shows the core A2A flow:
 - Travel Assistant sends an A2A JSON-RPC request to the Flight Booking Agent.
 - Flight Booking Agent receives the request on its root A2A endpoint and returns an HTTP 200 response.
 
-## 2. How the Travel Assistant discovered the Flight Booking Agent
+## How the Travel Assistant discovered the Flight Booking Agent
 
 The Travel Assistant used the registry client to call the stub registry's semantic discovery endpoint. In this project, the registry always returns the Flight Booking Agent as a canned response.
 
@@ -80,7 +80,7 @@ Important observation:
 - The registry implementation is still a stub, so the search is not truly semantic yet.
 - The discovered agent is cached locally as `/flight-booking-agent` for later invocation.
 
-## 3. JSON-RPC request/response format observed
+## JSON-RPC request/response format observed
 
 Observed request shape:
 
@@ -153,7 +153,7 @@ What this means:
 - `history` keeps the conversational trace.
 - `status.state` shows whether the task completed.
 
-## 4. What information was in the agent card and how it was used
+## What information was in the agent card and how it was used
 
 The Travel Assistant fetched the Flight Booking Agent card from:
 
@@ -178,7 +178,7 @@ How it was used:
 - The card told the client where to send requests and what capabilities the remote agent exposed.
 - The skills list helped confirm that the remote agent had the exact booking operations needed.
 
-## 5. Benefits and limitations of this approach
+## Benefits and limitations of this approach
 
 Benefits:
 - Agents are loosely coupled. The Travel Assistant does not need to hardcode booking logic internally.
